@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/releases"
+        :path     => "/apps/#{escape app}/releases"
       )
     end
 
@@ -15,7 +15,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/releases/#{release}"
+        :path     => "/apps/#{escape app}/releases/#{release}"
       )
     end
 
@@ -24,7 +24,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/releases",
+        :path     => "/apps/#{escape app}/releases",
         :query    => {'rollback' => release}
       )
     end

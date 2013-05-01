@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :delete,
-        :path     => "/apps/#{app}"
+        :path     => "/apps/#{escape app}"
       )
     end
 
@@ -24,7 +24,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}"
+        :path     => "/apps/#{escape app}"
       )
     end
 
@@ -33,7 +33,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/server/maintenance"
+        :path     => "/apps/#{escape app}/server/maintenance"
       )
     end
 
@@ -52,7 +52,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/server/maintenance",
+        :path     => "/apps/#{escape app}/server/maintenance",
         :query    => {'maintenance_mode' => maintenance_mode}
       )
     end
@@ -62,7 +62,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :put,
-        :path     => "/apps/#{app}",
+        :path     => "/apps/#{escape app}",
         :query    => app_params(params)
       )
     end

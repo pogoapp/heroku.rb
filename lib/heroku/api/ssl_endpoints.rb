@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :delete,
-        :path     => "/apps/#{app}/ssl-endpoints/#{escape(cname)}"
+        :path     => "/apps/#{escape app}/ssl-endpoints/#{escape(cname)}"
       )
     end
 
@@ -15,7 +15,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/ssl-endpoints/#{escape(cname)}"
+        :path     => "/apps/#{escape app}/ssl-endpoints/#{escape(cname)}"
       )
     end
 
@@ -24,7 +24,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/ssl-endpoints"
+        :path     => "/apps/#{escape app}/ssl-endpoints"
       )
     end
 
@@ -33,7 +33,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/ssl-endpoints",
+        :path     => "/apps/#{escape app}/ssl-endpoints",
         :query     => { 'key' => key, 'pem' => pem }
       )
     end
@@ -43,7 +43,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/ssl-endpoints/#{escape(cname)}/rollback"
+        :path     => "/apps/#{escape app}/ssl-endpoints/#{escape(cname)}/rollback"
       )
     end
 
@@ -52,7 +52,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :put,
-        :path     => "/apps/#{app}/ssl-endpoints/#{escape(cname)}",
+        :path     => "/apps/#{escape app}/ssl-endpoints/#{escape(cname)}",
         :query     => { 'key' => key, 'pem' => pem }
       )
     end

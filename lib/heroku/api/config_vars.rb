@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :delete,
-        :path     => "/apps/#{app}/config_vars/#{escape(key)}"
+        :path     => "/apps/#{escape app}/config_vars/#{escape(key)}"
       )
     end
 
@@ -15,7 +15,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/config_vars"
+        :path     => "/apps/#{escape app}/config_vars"
       )
     end
 
@@ -25,7 +25,7 @@ module Heroku
         :body     => Heroku::API::OkJson.encode(vars),
         :expects  => 200,
         :method   => :put,
-        :path     => "/apps/#{app}/config_vars"
+        :path     => "/apps/#{escape app}/config_vars"
       )
     end
 

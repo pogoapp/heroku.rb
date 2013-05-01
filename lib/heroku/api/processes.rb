@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/ps"
+        :path     => "/apps/#{escape app}/ps"
       )
     end
 
@@ -16,7 +16,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/ps",
+        :path     => "/apps/#{escape app}/ps",
         :query    => ps_options(options)
       )
     end
@@ -26,7 +26,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/ps/restart",
+        :path     => "/apps/#{escape app}/ps/restart",
         :query    => options
       )
     end
@@ -36,7 +36,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/ps/scale",
+        :path     => "/apps/#{escape app}/ps/scale",
         :query    => {
           'type'  => type,
           'qty'   => quantity
@@ -49,7 +49,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/ps/stop",
+        :path     => "/apps/#{escape app}/ps/stop",
         :query    => options
       )
     end
@@ -59,7 +59,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :put,
-        :path     => "/apps/#{app}/dynos",
+        :path     => "/apps/#{escape app}/dynos",
         :query    => {'dynos' => dynos}
       )
     end
@@ -69,7 +69,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :put,
-        :path     => "/apps/#{app}/workers",
+        :path     => "/apps/#{escape app}/workers",
         :query    => {'workers' => workers}
       )
     end

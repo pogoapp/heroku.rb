@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :delete,
-        :path     => "/apps/#{app}/addons/#{addon}"
+        :path     => "/apps/#{escape app}/addons/#{addon}"
       )
     end
 
@@ -14,7 +14,7 @@ module Heroku
     # GET /apps/:app/addons
     def get_addons(app=nil)
       path = if app
-        "/apps/#{app}/addons"
+        "/apps/#{escape app}/addons"
       else
         "/addons"
       end
@@ -30,7 +30,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :post,
-        :path     => "/apps/#{app}/addons/#{addon}",
+        :path     => "/apps/#{escape app}/addons/#{addon}",
         :query    => addon_params(config)
       )
     end
@@ -40,7 +40,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :put,
-        :path     => "/apps/#{app}/addons/#{addon}",
+        :path     => "/apps/#{escape app}/addons/#{addon}",
         :query    => addon_params(config)
       )
     end

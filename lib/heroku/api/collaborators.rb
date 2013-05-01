@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :delete,
-        :path     => "/apps/#{app}/collaborators/#{email}"
+        :path     => "/apps/#{escape app}/collaborators/#{email}"
       )
     end
 
@@ -15,7 +15,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/collaborators"
+        :path     => "/apps/#{escape app}/collaborators"
       )
     end
 
@@ -24,7 +24,7 @@ module Heroku
       request(
         :expects  => [200, 201],
         :method   => :post,
-        :path     => "/apps/#{app}/collaborators",
+        :path     => "/apps/#{escape app}/collaborators",
         :query    => {'collaborator[email]' => email}
       )
     end

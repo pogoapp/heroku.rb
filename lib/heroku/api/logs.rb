@@ -9,7 +9,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/logs",
+        :path     => "/apps/#{escape app}/logs",
         :query    => options
       )
     end

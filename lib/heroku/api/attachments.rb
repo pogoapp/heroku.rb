@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects => 200,
         :method => :get,
-        :path => "/apps/#{app}/attachments"
+        :path => "/apps/#{escape app}/attachments"
       )
     end
 

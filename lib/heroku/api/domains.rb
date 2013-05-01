@@ -6,7 +6,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :delete,
-        :path     => "/apps/#{app}/domains/#{escape(domain)}"
+        :path     => "/apps/#{escape app}/domains/#{escape(domain)}"
       )
     end
 
@@ -15,7 +15,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :delete,
-        :path     => "/apps/#{app}/domains"
+        :path     => "/apps/#{escape app}/domains"
       )
     end
 
@@ -24,7 +24,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/domains"
+        :path     => "/apps/#{escape app}/domains"
       )
     end
 
@@ -33,7 +33,7 @@ module Heroku
       request(
         :expects  => 201,
         :method   => :post,
-        :path     => "/apps/#{app}/domains",
+        :path     => "/apps/#{escape app}/domains",
         :query    => {'domain_name[domain]' => domain}
       )
     end

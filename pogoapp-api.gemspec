@@ -3,13 +3,13 @@ $:.push File.expand_path("../lib", __FILE__)
 require "heroku/api/version"
 
 Gem::Specification.new do |s|
-  s.name        = "heroku-api"
+  s.name        = "pogoapp-api"
   s.version     = Heroku::API::VERSION
   s.authors     = ["geemus (Wesley Beary)"]
   s.email       = ["wesley@heroku.com"]
-  s.homepage    = "http://github.com/heroku/heroku.rb"
-  s.summary     = %q{Ruby Client for the Heroku API}
-  s.description = %q{Ruby Client for the Heroku API}
+  s.homepage    = "http://github.com/pogoapp/pogoapp.rb"
+  s.summary     = %q{Ruby Client for the Pogoapp API}
+  s.description = %q{Ruby Client for the Pogoapp API}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

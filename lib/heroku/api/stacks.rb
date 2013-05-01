@@ -5,7 +5,7 @@ module Heroku
       request(
         :expects  => 200,
         :method   => :get,
-        :path     => "/apps/#{app}/stack"
+        :path     => "/apps/#{escape app}/stack"
       )
     end
 
@@ -14,7 +14,7 @@ module Heroku
         :body     => stack,
         :expects  => 200,
         :method   => :put,
-        :path     => "/apps/#{app}/stack"
+        :path     => "/apps/#{escape app}/stack"
       )
     end
 
